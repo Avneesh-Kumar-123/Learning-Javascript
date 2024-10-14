@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script>
+    function validate() {
+      var id = document.getElementById("id").value;
+      var name1 = document.getElementById("name").value;
+      var hobby = document.getElementsByName("hobby")
+
+      var hstatus = false;
+      hobby.forEach(element => {
+        if (element.checked) {
+          hstatus = true;
+        }
+      });
+
+      if (id == '') {
+        alert("id is blank")
+        return false;
+      }
+      else if (isNaN(id)) {
+        alert("id is not a number")
+        return false;
+      }
+      else if (name1 == '') {
+        alert("name cannot be empty")
+        return false;
+      }
+      else if (name1.length < 5) {
+        alert("name length should be more than 5")
+        return false
+      }
+      else if(hstatus==false)
+      {
+        alert("hobbie cannot be empty")
+        return false;
+      }
+      else {
+        alert("form validate")
+        return true;
+      }
+    }
+  
+  </script>
+</head>
+
+<body>
+  <form onsubmit="return validate()" class="border border-primary p-5  m-5 w-75 bg-info text-primary">
+    <div>
+      <label>Enter id </label>
+      <input name="id" id="id">
+    </div>
+    <div >
+      <label>Enter name</label>
+      <input name="name " id="name">
+    </div>
+    <div>
+      <label>select hobbie</label>
+      <div><input name="hobby" id="hobby" value="Reading" type="radio">Reading</div>
+      <div><input name="hobby" id="hobby" value="Reading" type="radio">Cricket</div>
+      <div><input name="hobby" id="hobby" value="Reading" type="radio">Football</div>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</body>
+
+</html>
